@@ -1,0 +1,58 @@
+ ! Note that CUTWIN_CID accepts only a fraction of the total.
+
+  &SNLCINP
+     VERSION_PHOTOMETRY = 'MIRAMULTITEST_AOG1500'
+     HFILE_OUT   = 'snfit_LSST.hbook'
+     KCOR_FILE   = 'LSST/2017-04_approx/kcor_LSST.fits'
+ 
+     PHOTFLAG_MSKREJ  = 1024
+ 
+     NFIT_ITERATION = 2
+     INTERP_OPT     = 1
+     H0_REF     = 70.0
+ 
+     !cutwin_cid   =  1, 50000
+    !SNTYPE_LIST  =  120, 118, 0
+ !    SNCID_LIST   =  762
+!     SNCID_IGNORE =  4524, 8151, 7017
+ 
+     LDMP_SNFAIL  = F
+ 
+!     cutwin_redshift  =  0.0, 1.50
+!     cutwin_Trestmin  = -99.0, 0.0
+!     cutwin_Trestmax  =  9.5, 9999.
+!     cutwin_peakmjd   = 53615.0,  53700.0
+ !    cutwin_Trest     = -20.0, 60.0
+ 
+     CUTWIN_SNRMAX       = 0.1, 1.0E8
+     CUTWIN_NFILT_SNRMAX = 0.1, 99.
+!     SNCUT_SNRMAX = ' g  -1.01   r  1.01   i  1.01'
+
+     cutwin_Nepoch       = 5
+     cutwin_Nband_thresh = 1
+     EPCUT_SNRMIN = 'g  -4.00  r  -4.00  i  -4.00 '
+
+
+  &END
+ 
+     EXTERN_DATAFILE = 
+       'Andy_SDSS.fitres'
+       'Andy_SETe_MB.fitres'
+       'Andy_SETe_X0.fitres'
+
+ 
+  &FITINP
+     FITMODEL_NAME  = 'SALT2' 
+
+     PRIOR_MJDSIG        = 100.
+     PRIOR_SHAPE_RANGE = -5.0, 5.0
+     PRIOR_SHAPE_SIGMA = 0.1
+
+     TREST_REJECT  = -15.0, 50.0
+     NGRID_PDF     = 0 
+
+     FILTLIST_FIT  = 'gri'
+     FILTLIST_DMPFUN = ''
+     FITWIN_PROB = 0.001, 1.1 
+  &END
+  
